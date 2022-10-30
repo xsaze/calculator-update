@@ -90,9 +90,22 @@ function deleteAll() {
 
 /*Back*/
 function deleteLast() {
+    /*Bugfix*/
+    if (document.getElementById('display').textContent == '' && document.getElementById('displayResult').textContent != '') {
+        a = 0;
+        b = 0;
+        result = 0;
+        operator = 0;
+        lastOperator = 0;
+        let string = document.getElementById('displayResult').textContent;
+        let newString = string.slice(0,-2);
+        document.getElementById('display').textContent=newString;
+        document.getElementById('displayResult').textContent='';
+    } else {
     let string = document.getElementById('display').textContent;
     let newString = string.slice(0,-1)
     document.getElementById('display').textContent=newString;
+    }
 }
 
 /*Updating display*/
